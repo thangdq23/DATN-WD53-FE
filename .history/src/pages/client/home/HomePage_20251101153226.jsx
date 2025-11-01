@@ -40,32 +40,6 @@ const sampleMovies = [
     duration: "120 phút",
     releaseDate: "07/11/2025",
     age: "T18",
-  
-    
-    showtimes: [
-      {
-        id: 101,
-        theater: "CGV Vincom Landmark 81",
-        room: "Phòng 2",
-        date: "2025-11-07",
-        time: "19:00",
-        seats: Array.from({ length: 30 }, (_, i) => ({
-          id: i + 1,
-          reserved: [3, 7, 10, 15].includes(i + 1), // các ghế này đã có người đặt
-        })),
-      },
-      {
-        id: 102,
-        theater: "Lotte Mart Gò Vấp",
-        room: "Phòng 5",
-        date: "2025-11-07",
-        time: "21:30",
-        seats: Array.from({ length: 30 }, (_, i) => ({
-          id: i + 1,
-          reserved: [2, 6, 11].includes(i + 1),
-        })),
-      },
-    ],
   },
   {
     id: 2,
@@ -194,9 +168,7 @@ const styles = {
   },
 };
 
-const HomePage = () => { 
-  const navigate = useNavigate();
-
+const HomePage = () => {
   const [tabKey, setTabKey] = useState("coming");
   const [movies] = useState(sampleMovies);
   const [query, setQuery] = useState("");
@@ -328,9 +300,7 @@ const HomePage = () => {
                   <div style={{ paddingTop: 8 }}>
                     <Link
                       style={styles.titleLink}
-                      onClick={() => navigate(`/showtime/${m.id}/${m.showtimes?.[0]?.id}`)}
-
-
+                      onClick={() => alert(`Mở chi tiết: ${m.title}`)}
                     >
                       {m.title}
                     </Link>
@@ -353,6 +323,5 @@ const HomePage = () => {
     </div>
   );
 };
-export { sampleMovies };
 
 export default HomePage;

@@ -328,8 +328,7 @@ const HomePage = () => {
                   <div style={{ paddingTop: 8 }}>
                     <Link
                       style={styles.titleLink}
-                      onClick={() => navigate(`/showtime/${m.id}/${m.showtimes?.[0]?.id}`)}
-
+                      onClick={() => navigate(`/showtime/${m.id}`)}
 
                     >
                       {m.title}

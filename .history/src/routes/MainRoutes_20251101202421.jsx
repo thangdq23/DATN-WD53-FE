@@ -13,7 +13,7 @@ export const MainRoutes = [
         element: <HomePage />,
       },
       {
-        path: "/showtime/:movieId/:showtimeId",
+        path: "showtime/:id",
         element: <ShowtimePage />,
       },
       {

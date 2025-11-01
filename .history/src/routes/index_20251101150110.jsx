@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
-import { MainRoutes } from "./MainRoutes";
-import NotfoundPage from "../pages/NotFoundPage";
+import { MainRoutes } from "./mainRoutes";
+import NotfoundPage from "../pages/NotfoundPage";
 import { AdminRoutes } from "./AdminRoutes";
 
 const routes = createBrowserRouter([

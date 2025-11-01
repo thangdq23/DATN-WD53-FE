@@ -1,6 +1,6 @@
 import MainLayout from "../common/layouts/MainLayout";
 import HomePage from "../pages/client/home/HomePage";
-import ShowtimePage from "../pages/client/home/ShowtimePage"; // 👈 thay trang mới
+import MovieDetailPage from "../pages/client/MovieDetailPage";
 import NotFoundPage from "../pages/NotFoundPage";
 
 export const MainRoutes = [
@@ -9,16 +9,12 @@ export const MainRoutes = [
     element: <MainLayout />,
     children: [
       {
-        index: true, // "/" → HomePage
+        index: true, // "/" -> HomePage
         element: <HomePage />,
       },
       {
-        path: "/showtime/:movieId/:showtimeId",
-        element: <ShowtimePage />,
-      },
-      {
-        path: "*",
-        element: <NotFoundPage />,
+        path: "movie/:id", // 👈 route chi tiết phim
+        element: <MovieDetailPage />,
       },
     ],
   },
