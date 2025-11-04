@@ -1,16 +1,21 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { MainRoutes } from "./MainRoutes";
-import NotfoundPage from "../pages/NotFoundPage";
+import NotFoundPage from "../pages/NotFoundPage";
 import { AdminRoutes } from "./AdminRoutes";
+import { App } from "antd";
 
 const routes = createBrowserRouter([
   ...MainRoutes,
   ...AdminRoutes,
   {
     path: "*",
-    element: <NotfoundPage />,
+    element: <NotFoundPage />,
   },
 ]);
 export const AppRoutes = () => {
-  return <RouterProvider router={routes} />;
+  return (
+    <App>
+      <RouterProvider router={routes} />
+    </App>
+  );
 };
