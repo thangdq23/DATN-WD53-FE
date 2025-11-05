@@ -13,7 +13,7 @@ const AdminLayout = () => {
       <Sider
         width={260}
         style={{
-          overflow: "auto",
+          overflow: "hidden",
           height: "100vh",
           position: "fixed",
           left: 0,
