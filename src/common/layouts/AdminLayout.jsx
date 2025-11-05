@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout, Button, Space, Typography } from "antd";
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router";
 import SideBar from "./components/SideBar";
 
 const { Header, Content, Sider } = Layout;
