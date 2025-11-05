@@ -29,7 +29,7 @@ const { Text, Link } = Typography;
 
 const DEFAULT_POSTER = posterTraiTim;
 const DEFAULT_BANNER = bannerImg;
-
+const navigate = useNavigate();
 
 const BANNER_URL = bannerImg;
 
@@ -171,7 +171,6 @@ const styles = {
 };
 
 const HomePage = () => {
-  const navigate = useNavigate();
   const [tabKey, setTabKey] = useState("coming");
   const [movies] = useState(sampleMovies);
   const [query, setQuery] = useState("");
@@ -301,13 +300,12 @@ const HomePage = () => {
                   </div>
 
                   <div style={{ paddingTop: 8 }}>
-                  <Link
-  style={styles.titleLink}
-  onClick={() => navigate(`/showtime/${m.id}`)}
->
-  {m.title}
-</Link>
-
+                    <Link
+                      style={styles.titleLink}
+                      onClick={() => alert(`Mở chi tiết: ${m.title}`)}
+                    >
+                      {m.title}
+                    </Link>
                     <div style={styles.metaSmall}>
                       Thể loại: <Text strong>{m.genres.join(", ")}</Text>
                     </div>

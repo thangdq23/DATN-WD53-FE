@@ -3,7 +3,7 @@ import MainLayout from "../common/layouts/MainLayout";
 import LoginPage from "../pages/client/auth/LoginPage";
 import RegisterPage from "../pages/client/auth/RegisterPage";
 import HomePage from "../pages/client/home/HomePage";
-import ShowtimePage from "../pages/client/ShowTimePage"; 
+import ShowtimePage from "../pages/client/showtime/ShowtimePage"; // 👈 thêm dòng này
 
 export const MainRoutes = [
   {
