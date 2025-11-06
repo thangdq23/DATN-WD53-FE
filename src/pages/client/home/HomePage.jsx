@@ -10,6 +10,8 @@ import {
   Tabs,
   Typography,
 } from "antd";
+import { ShoppingCartOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 import bannerImg from "../../../assets/images/banner/banner.png";
 import posterTraiTim from "../../../assets/images/poster/trai-tim-que-quat.jpg";
 import posterTruyTim from "../../../assets/images/poster/truy-tim-long-dien-huong.jpg";
@@ -19,8 +21,6 @@ import posterQuanKy from "../../../assets/images/poster/quan-ky-nam.jpg";
 import posterHoangTu from "../../../assets/images/poster/hoang-tu-quy.png";
 import posterBaDung from "../../../assets/images/poster/ba-dung-buon-con.png";
 import posterCoHau from "../../../assets/images/poster/co-hau-gai.jpg";
-import { useNavigate } from "react-router-dom";
-
 
 const { Search } = Input;
 const { Option } = Select;
@@ -29,14 +29,14 @@ const { Text, Link } = Typography;
 
 const DEFAULT_POSTER = posterTraiTim;
 const DEFAULT_BANNER = bannerImg;
-
-
 const BANNER_URL = bannerImg;
 
 const sampleMovies = [
+  // PHIM SẮP CHIẾU
   {
     id: 1,
     title: "Trái Tim Quê Quặt",
+    status: "coming",
     genres: ["Hồi hộp", "Ly kỳ", "Tâm lý"],
     poster: posterTraiTim,
     duration: "120 phút",
@@ -46,6 +46,7 @@ const sampleMovies = [
   {
     id: 2,
     title: "Truy Tìm Long Điền Hương",
+    status: "coming",
     genres: ["Hành động", "Hài hước"],
     poster: posterTruyTim,
     duration: "120 phút",
@@ -55,6 +56,7 @@ const sampleMovies = [
   {
     id: 3,
     title: "Bẫy Tiền",
+    status: "coming",
     genres: ["Giật gân", "Tâm lý"],
     poster: posterBayTien,
     duration: "120 phút",
@@ -64,46 +66,53 @@ const sampleMovies = [
   {
     id: 4,
     title: "Phòng Trọ Ma Bấu",
+    status: "coming",
     genres: ["Kinh dị", "Hài hước"],
     poster: posterPhongTro,
     duration: "120 phút",
     releaseDate: "28/11/2025",
     age: "T18",
   },
+
+  // PHIM ĐANG CHIẾU
   {
     id: 5,
     title: "Quân Kỳ Nam",
+    status: "now",
     genres: ["Lãng mạn", "Tâm lý"],
     poster: posterQuanKy,
-    duration: "120 phút",
-    releaseDate: "28/11/2025",
+    duration: "110 phút",
+    releaseDate: "03/10/2025",
     age: "T16",
   },
   {
     id: 6,
     title: "Hoàng Tử Quỷ",
+    status: "now",
     genres: ["Kinh dị"],
     poster: posterHoangTu,
-    duration: "120 phút",
-    releaseDate: "05/12/2025",
+    duration: "100 phút",
+    releaseDate: "10/10/2025",
     age: "T16",
   },
   {
     id: 7,
     title: "Bà Đừng Buồn Con",
-    genres: ["Gian dâm", "Tâm lý"],
+    status: "now",
+    genres: ["Gia đình", "Tâm lý"],
     poster: posterBaDung,
-    duration: "120 phút",
-    releaseDate: "12/12/2025",
+    duration: "95 phút",
+    releaseDate: "20/09/2025",
     age: "T15",
   },
   {
     id: 8,
     title: "Cô Hầu Gái",
+    status: "now",
     genres: ["Kinh dị", "Giật gân"],
     poster: posterCoHau,
-    duration: "120 phút",
-    releaseDate: "26/12/2025",
+    duration: "115 phút",
+    releaseDate: "25/09/2025",
     age: "T16",
   },
 ];
@@ -126,7 +135,7 @@ const styles = {
   contentWrap: {
     width: "100%",
     maxWidth: 1280,
-    margin: "0 auto",
+    margin: "0 auto 200px",
     padding: "0 24px",
     boxSizing: "border-box",
   },
@@ -168,6 +177,18 @@ const styles = {
     border: "none",
     background: "transparent",
   },
+  buyBtn: {
+    background: "#2d9cdb",
+    borderColor: "#2d9cdb",
+    color: "#fff",
+    borderRadius: 6,
+    height: 44,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    marginTop: 12,
+  },
 };
 
 const HomePage = () => {
@@ -188,7 +209,13 @@ const HomePage = () => {
     let list = movies.filter((m) =>
       m.title.toLowerCase().includes(query.toLowerCase()),
     );
+
+    if (tabKey === "coming") list = list.filter((m) => m.status === "coming");
+    if (tabKey === "now") list = list.filter((m) => m.status === "now");
+    if (tabKey === "special") list = list.filter((m) => m.status === "special");
+
     if (genre !== "All") list = list.filter((m) => m.genres.includes(genre));
+
     let sorted = [...list];
     if (sort === "year_desc")
       sorted.sort((a, b) => (b.year || 0) - (a.year || 0));
@@ -196,8 +223,13 @@ const HomePage = () => {
       sorted.sort((a, b) => (a.year || 0) - (b.year || 0));
     if (sort === "rating")
       sorted.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+
     return sorted;
-  }, [movies, query, genre, sort]);
+  }, [movies, query, genre, sort, tabKey]);
+
+  const handleBuy = (movie) => {
+    alert(`Mua vé: ${movie.title}`);
+  };
 
   return (
     <div>
@@ -222,9 +254,22 @@ const HomePage = () => {
           }}
         >
           <Tabs activeKey={tabKey} onChange={(k) => setTabKey(k)} centered>
-            <TabPane tab={<b>PHIM SẮP CHIẾU</b>} key="coming" />
-            <TabPane tab={<b>PHIM ĐANG CHIẾU</b>} key="now" />
-            <TabPane tab={<b>SUẤT CHIẾU ĐẶC BIỆT</b>} key="special" />
+            <TabPane
+              tab={
+                <span style={{ fontSize: 20, fontWeight: 700 }}>
+                  PHIM SẮP CHIẾU
+                </span>
+              }
+              key="coming"
+            />
+            <TabPane
+              tab={
+                <span style={{ fontSize: 20, fontWeight: 700 }}>
+                  PHIM ĐANG CHIẾU
+                </span>
+              }
+              key="now"
+            />
           </Tabs>
         </div>
 
@@ -301,13 +346,12 @@ const HomePage = () => {
                   </div>
 
                   <div style={{ paddingTop: 8 }}>
-                  <Link
-  style={styles.titleLink}
-  onClick={() => navigate(`/showtime/${m.id}`)}
->
-  {m.title}
-</Link>
-
+                    <Link
+                      style={styles.titleLink}
+                      onClick={() => navigate(`/showtime/${m.id}`)}
+                    >
+                      {m.title}
+                    </Link>
                     <div style={styles.metaSmall}>
                       Thể loại: <Text strong>{m.genres.join(", ")}</Text>
                     </div>
@@ -317,6 +361,16 @@ const HomePage = () => {
                     <div style={styles.metaSmallMuted}>
                       Ngày khởi chiếu: <Text strong>{m.releaseDate}</Text>
                     </div>
+
+                    {m.status === "now" && (
+                      <Button
+                        icon={<ShoppingCartOutlined />}
+                        style={styles.buyBtn}
+                        onClick={() => handleBuy(m)}
+                      >
+                        MUA VÉ
+                      </Button>
+                    )}
                   </div>
                 </Card>
               </Col>
