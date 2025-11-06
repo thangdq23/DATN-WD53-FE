@@ -29,7 +29,7 @@ const { Text, Link } = Typography;
 
 const DEFAULT_POSTER = posterTraiTim;
 const DEFAULT_BANNER = bannerImg;
-
+const navigate = useNavigate();
 
 const BANNER_URL = bannerImg;
 
@@ -171,7 +171,6 @@ const styles = {
 };
 
 const HomePage = () => {
-  const navigate = useNavigate();
   const [tabKey, setTabKey] = useState("coming");
   const [movies] = useState(sampleMovies);
   const [query, setQuery] = useState("");
