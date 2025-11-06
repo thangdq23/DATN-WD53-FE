@@ -189,13 +189,27 @@ const ShowtimePage = () => {
             <p className="text-gray-300 italic mb-4">{movie.genre}</p>
 
             <div className="text-gray-200 space-y-2 text-sm md:text-base">
-              <p>🎬 <b>Đạo diễn:</b> {movie.director}</p>
-              <p>⭐ <b>Diễn viên:</b> {movie.actor}</p>
-              <p>⏱ <b>Thời lượng:</b> {movie.duration}</p>
-              <p>📅 <b>Khởi chiếu:</b> {movie.releaseDate}</p>
-              <p>🌏 <b>Quốc gia:</b> {movie.country}</p>
-              <p>💬 <b>Ngôn ngữ:</b> {movie.language}</p>
-              <p>🔥 <b>Đánh giá:</b> {movie.rating}/5 ⭐</p>
+              <p>
+                🎬 <b>Đạo diễn:</b> {movie.director}
+              </p>
+              <p>
+                ⭐ <b>Diễn viên:</b> {movie.actor}
+              </p>
+              <p>
+                ⏱ <b>Thời lượng:</b> {movie.duration}
+              </p>
+              <p>
+                📅 <b>Khởi chiếu:</b> {movie.releaseDate}
+              </p>
+              <p>
+                🌏 <b>Quốc gia:</b> {movie.country}
+              </p>
+              <p>
+                💬 <b>Ngôn ngữ:</b> {movie.language}
+              </p>
+              <p>
+                🔥 <b>Đánh giá:</b> {movie.rating}/5 ⭐
+              </p>
             </div>
 
             <p className="text-gray-300 mt-5 leading-relaxed">
