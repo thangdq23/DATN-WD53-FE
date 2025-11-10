@@ -8,7 +8,6 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import axios from "axios";
-import GenreForm from "./GenreForm";
 
 const { Title } = Typography;
 
@@ -137,7 +136,7 @@ const GenrePage = () => {
         pagination={{ pageSize: 5 }}
       />
 
-       <Modal
+      {/* <Modal
         open={openModal}
         footer={null}
         onCancel={() => setOpenModal(false)}
@@ -148,7 +147,7 @@ const GenrePage = () => {
           onClose={() => setOpenModal(false)}
           refresh={fetchGenres}
         />
-      </Modal>
+      </Modal> */}
     </div>
   );
 };

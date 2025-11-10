@@ -137,7 +137,7 @@ const GenrePage = () => {
         pagination={{ pageSize: 5 }}
       />
 
-       <Modal
+      {/* <Modal
         open={openModal}
         footer={null}
         onCancel={() => setOpenModal(false)}
@@ -148,7 +148,7 @@ const GenrePage = () => {
           onClose={() => setOpenModal(false)}
           refresh={fetchGenres}
         />
-      </Modal>
+      </Modal> */}
     </div>
   );
 };
