@@ -1,16 +1,13 @@
-# React + Vite
+# Cách làm việc với github
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. Tách nhánh theo chức cần thiết từ nhánh phát triển (dev)
 
-Currently, two official plugins are available:
+- Sử dụng câu lệnh ở trên nhánh dev `git branch -M ten-nhanh`. (Tính năng mới thì sẽ đặt tên nhánh theo tên tính năng còn nếu fix lỗi thì sẽ có tiền tố là fix/ten-nhanh).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 2. Gói code và đẩy code
 
-## React Compiler
-
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Sau khi code hoàn thiện chức năng hoặc 50%-70% thì đẩy code lên bằng các cách
+- Bước 1: `git add .` để gói các file có sự thay đổi và chuẩn bị commit.
+- Bước 2: `git commit -m "tin nhắn"` đẩy các file thay đổi lên theo tên commit.
+- Bước 3: `git push origin ten-nhanh-hien-tai` để đẩy các commit lên nhánh mới của mình.
+- Bước 4: sau khi đẩy nhánh thành công lên tạo pull request và không có conflict thì báo lại leader merge pull request.
