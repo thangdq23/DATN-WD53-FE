@@ -5,6 +5,8 @@ import {
   UserOutlined,
   VideoCameraOutlined,
   ScheduleOutlined,
+  TagsOutlined,
+  DesktopOutlined,
 } from "@ant-design/icons";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -24,9 +26,19 @@ const SideBar = () => {
       label: "Quản lý người dùng",
     },
     {
+      key: "/admin/genres",
+      icon: <TagsOutlined />,
+      label: "Quản lý thể loại phim",
+    },
+    {
       key: "/admin/movies",
       icon: <VideoCameraOutlined />,
       label: "Quản lý phim",
+    },
+    {
+      key: "/admin/rooms",
+      icon: <DesktopOutlined />,
+      label: "Quản lý phòng chiếu",
     },
     {
       key: "/admin/showtimes",
