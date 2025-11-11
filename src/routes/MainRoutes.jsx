@@ -5,6 +5,7 @@ import RegisterPage from "../pages/client/auth/RegisterPage";
 import HomePage from "../pages/client/home/HomePage";
 import ShowtimePage from "../pages/client/ShowTimePage"; 
 
+
 export const MainRoutes = [
   {
     path: "",
@@ -17,7 +18,7 @@ export const MainRoutes = [
       {
         path: "showtime/:id", 
         element: <ShowtimePage />,
-      },
+      }
     ],
   },
   {
